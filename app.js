@@ -1,19 +1,24 @@
 const express = require('express')
 const app = express()
 
+// Set default view engine
+app.set('view engine', 'ejs')
+
+// Set Routes
 app.get('/', (req, res) => {
-  res.send('<html><body><h1>Hello World</h1></body></html>')
+  res.render('home')
 })
 app.get('/tecnologia', (req, res) => {
-  res.send('<html><body><h1>Tecnologia</h1></body></html>')
+  res.render('tecnologia')
 })
 app.get('/moda', (req, res) => {
-  res.send('<html><body><h1>Moda</h1></body></html>')
+  res.render('moda')
 })
 app.get('*', (req, res) => {
-  res.send('<html><body><h1>Hello World</h1></body></html>')
+  res.render('home')
 })
 
+// Init app
 app.listen(3000, () => {
   console.log('Server running')
 })
