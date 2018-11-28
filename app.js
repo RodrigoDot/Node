@@ -6,16 +6,16 @@ app.set('view engine', 'ejs')
 
 // Set Routes
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home/home')
 })
-app.get('/tecnologia', (req, res) => {
-  res.render('tecnologia')
+app.get('/noticias', (req, res) => {
+  res.render('noticias/noticias')
 })
-app.get('/moda', (req, res) => {
-  res.render('moda')
+app.get('/admin', (req, res) => {
+  res.render('admin/admin')
 })
 app.get('*', (req, res) => {
-  res.render('home')
+  res.render('home/home')
 })
 
 // Init app
