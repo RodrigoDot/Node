@@ -1,23 +1,24 @@
-var http = require('http')
+const express = require('express')
+const app = express()
 
-var server = http.createServer( function(req, res) {
+// Set default view engine
+app.set('view engine', 'ejs')
 
-  var route = req.url
-
-  console.log(req.url)
-
-  if(route === '/tecnologia') {
-    res.end('<html><body><h1>Tecnologia</h1></body></html>')
-  }
-  if(route === '/moda') {
-    res.end('<html><body><h1>Moda</h1></body></html>')
-  }
-  if(route === '/ciencia') {
-    res.end('<html><body><h1>Ciencia</h1></body></html>')
-  } else {
-    res.end('<html><body><h1>Hello World</h1></body></html>')
-  }
-
+// Set Routes
+app.get('/', (req, res) => {
+  res.render('home/home')
+})
+app.get('/noticias', (req, res) => {
+  res.render('noticias/noticias')
+})
+app.get('/admin', (req, res) => {
+  res.render('admin/admin')
+})
+app.get('*', (req, res) => {
+  res.render('home/home')
 })
 
-server.listen(3000)
+// Init app
+app.listen(3000, () => {
+  console.log('Server running')
+})
